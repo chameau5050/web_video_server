@@ -1,8 +1,13 @@
 #ifndef WEB_VIDEO_SERVER_H_
 #define WEB_VIDEO_SERVER_H_
 
+#if __has_include(<cv_bridge/cv_bridge.hpp>)
+#include <cv_bridge/cv_bridge.hpp>  // For ROS Iron and up.
+#else
+#include <cv_bridge/cv_bridge.h>  // For ROS Humble and below
+#endif
+
 #include <rclcpp/rclcpp.hpp>
-#include <cv_bridge/cv_bridge.hpp>
 #include <vector>
 #include "web_video_server/image_streamer.h"
 #include "async_web_server_cpp/http_server.hpp"
